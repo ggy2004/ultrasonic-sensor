@@ -1,0 +1,46 @@
+int val;
+const int speakerPin = 9;
+const int sensorPin =0;
+void setup() {
+    Serial.begin(1152000);
+    pinMode(7, OUTPUT);
+    pinMode(6, INPUT)
+}
+void loop()
+{
+    digitalwrite(7, HIGH);
+    delayMicroseconds(10);
+    digitalwrite(7, LOW);
+    val=pulseIn(6,HIGH)/58;
+    Serial.printIn("==============")
+    Serial.print("Distance(cm) = ");
+    Serial.printIn(val);
+    if(val >= 100)
+    }
+
+    if (val < 100 && val >= 50)) {
+        int sensorvalue = analogRead(sensorPin);
+        int frequency = map(sensorvalue, 0, 1023, 100, 5000);
+        int duration = 100;
+        tone(speakerPin, frequency, duration);
+        Serial.PrintIn("[Safety]");
+        Serial.printIn("==============")
+        }
+    else if(val < 50 && val > 10){
+        int sensorvalue = analogRead(sensorPin);
+        int frequency = map(sensorvalue, 0, 1023, 100, 5000);
+        int duration = 500;
+        tone(speakerPin, frequency, duration);
+        Serial.PrintIn("[Warning]");
+        Serial.printIn("==============")
+        }
+    else if(val <=10){
+        int sensorvalue = analogRead(sensorPin);
+        int frequency = map(sensorvalue, 0, 1023, 100, 5000);
+        int duration = 500;
+        tone(speakerPin, frequency, duration);
+        Serial.PrintIn("[Danger]");
+        Serial.printIn("==============")
+        }
+    delay(1000);
+    }
